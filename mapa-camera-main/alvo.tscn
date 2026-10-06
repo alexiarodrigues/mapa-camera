@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://bcwhjmq8jsnme"]
+
+[ext_resource type="Script" uid="uid://d01a0eshthfwo" path="res://alvo.gd" id="1_q2vq5"]
+[ext_resource type="Texture2D" uid="uid://c4tmd1y0fw434" path="res://arte/Tilemap/tilemap_packed.png" id="2_npyt8"]
+[ext_resource type="FontFile" uid="uid://swdy5xena8pf" path="res://Fontes/KiriFont.otf" id="3_8cu02"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cu02"]
+atlas = ExtResource("2_npyt8")
+region = Rect2(256, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g0ueq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cu02")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2q6b"]
+size = Vector2(26, 29)
+
+[node name="Alvo" type="Area2D"]
+script = ExtResource("1_q2vq5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -2)
+scale = Vector2(0.796875, 0.828125)
+sprite_frames = SubResource("SpriteFrames_g0ueq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -4.5)
+shape = SubResource("RectangleShape2D_i2q6b")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -148.0
+offset_top = -9.0
+offset_right = -18.0
+offset_bottom = 14.0
+theme_override_colors/font_color = Color(0.14902, 0.717647, 0.92549, 1)
+theme_override_colors/font_shadow_color = Color(0.0823529, 0.407843, 0.913725, 1)
+theme_override_fonts/font = ExtResource("3_8cu02")
+text = "Parabéns !! "
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
