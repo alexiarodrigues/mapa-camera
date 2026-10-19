@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bv75bd2l4qsey"]
+[gd_scene format=3 uid="uid://bv75bd2l4qsey"]
 
 [ext_resource type="Script" uid="uid://m55bktxlepi3" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://c4tmd1y0fw434" path="res://arte/Tilemap/tilemap_packed.png" id="2_i3pqv"]
@@ -21,7 +21,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hqtel")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -32,7 +32,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2hs0m")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk",
 "speed": 5.0
 }]
@@ -40,16 +40,20 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dw050"]
 size = Vector2(18, 15)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=965350918]
 script = ExtResource("1_onrkg")
 
-[node name="Animação" type="AnimatedSprite2D" parent="."]
+[node name="Animação" type="AnimatedSprite2D" parent="." unique_id=832902760]
 sprite_frames = SubResource("SpriteFrames_1jxqw")
 animation = &"walk"
 autoplay = "walk"
 frame_progress = 0.258017
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=630674831]
 shape = SubResource("RectangleShape2D_dw050")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1379416079]
+limit_left = -150
+limit_top = -100
+limit_right = 457
+limit_bottom = 220

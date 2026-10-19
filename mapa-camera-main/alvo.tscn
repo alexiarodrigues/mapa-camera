@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bcwhjmq8jsnme"]
+[gd_scene format=3 uid="uid://bcwhjmq8jsnme"]
 
 [ext_resource type="Script" uid="uid://d01a0eshthfwo" path="res://alvo.gd" id="1_q2vq5"]
 [ext_resource type="Texture2D" uid="uid://c4tmd1y0fw434" path="res://arte/Tilemap/tilemap_packed.png" id="2_npyt8"]
@@ -14,27 +14,27 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8cu02")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i2q6b"]
-size = Vector2(26, 29)
+size = Vector2(13, 18)
 
-[node name="Alvo" type="Area2D"]
+[node name="Alvo" type="Area2D" unique_id=1219913249]
 script = ExtResource("1_q2vq5")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=633841745]
 position = Vector2(1, -2)
 scale = Vector2(0.796875, 0.828125)
 sprite_frames = SubResource("SpriteFrames_g0ueq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -4.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1634848239]
+position = Vector2(0.5, -1)
 shape = SubResource("RectangleShape2D_i2q6b")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=739641409]
 visible = false
 offset_left = -148.0
 offset_top = -9.0
